@@ -8,6 +8,7 @@ class ListaEnlazada:
     def __init__(self):
         self.cabeza = None
 
+    # Agregar al final de la lista
     def agregar(self, dato):
         nuevo = Nodo(dato)
         if self.cabeza is None:
@@ -18,6 +19,7 @@ class ListaEnlazada:
                 actual = actual.siguiente
             actual.siguiente = nuevo
 
+    # EJERCICIO 1.1: Contar número de elementos
     def contar_elementos(self):
         contador = 0
         actual = self.cabeza
@@ -25,38 +27,6 @@ class ListaEnlazada:
             contador += 1
             actual = actual.siguiente
         return contador
-
-
-# -------- PROGRAMA PRINCIPAL --------
-if __name__ == "__main__":
-    lista = ListaEnlazada()
-
-    lista.agregar(10)
-    lista.agregar(20)
-    lista.agregar(30)
-
-    print("Número de elementos en la lista:")
-    print(lista.contar_elementos())
-class Nodo:
-    def __init__(self, dato):
-        self.dato = dato
-        self.siguiente = None
-
-
-class ListaEnlazada:
-    def __init__(self):
-        self.cabeza = None
-
-    # Agregar al final
-    def agregar(self, dato):
-        nuevo = Nodo(dato)
-        if self.cabeza is None:
-            self.cabeza = nuevo
-        else:
-            actual = self.cabeza
-            while actual.siguiente is not None:
-                actual = actual.siguiente
-            actual.siguiente = nuevo
 
     # EJERCICIO 2.2: Invertir la lista
     def invertir(self):
@@ -84,15 +54,20 @@ class ListaEnlazada:
 if __name__ == "__main__":
     lista = ListaEnlazada()
 
-    lista.agregar(1)
-    lista.agregar(2)
-    lista.agregar(3)
-    lista.agregar(4)
+    # Agregar datos
+    lista.agregar(10)
+    lista.agregar(20)
+    lista.agregar(30)
+    lista.agregar(40)
 
     print("Lista original:")
     lista.mostrar()
 
+    print("\nNúmero de elementos en la lista:")
+    print(lista.contar_elementos())
+
+    # Invertir la lista
     lista.invertir()
 
-    print("Lista invertida:")
+    print("\nLista invertida:")
     lista.mostrar()
